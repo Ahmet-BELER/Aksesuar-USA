@@ -153,7 +153,7 @@ const  uniqueNewData3  = newdata3.filter((item,index)=>{
 
 console.log("mat FLTER PAGE",mat);
 
-   navigation.navigate('ResultPage', { datam:(marka && !sizeValue && !thicknesValue)? onlyNameData  : (marka && sizeValue && thicknesValue)? newdata3 : (!( marka||sizeValue||thicknesValue))? data : twofilterValue ? uniqueNewData3 :  uniqueNewData2.length > 0 ? uniqueNewData2 : newdata.length > 0 ? newdata:   null , mat: mat,data:data,marka:marka }  )
+   navigation.navigate('ResultPage', { datam:(marka && !sizeValue && !thicknesValue)? onlyNameData  : (marka && sizeValue && thicknesValue)? newdata3 : (!( marka||sizeValue||thicknesValue))? data : twofilterValue ? uniqueNewData3 :  uniqueNewData2.length > 0 ? uniqueNewData2 : newdata.length > 0 ? newdata:   null , mat: mat,data:data,marka:marka , size:sizeValue, kalınlık:thicknesValue }  )
 
 } 
 
@@ -202,7 +202,7 @@ console.log("mat FLTER PAGE",mat);
          </View>
          <View>
    <TouchableOpacity style={styles.Buttoncontainer} onPress={goResults}>
-            <Text style={styles.title}>Filtrele</Text>
+            <Text style={styles.title}>Filtrele </Text>
         </TouchableOpacity>
         </View>
       
