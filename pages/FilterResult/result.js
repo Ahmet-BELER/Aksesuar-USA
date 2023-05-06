@@ -16,12 +16,7 @@ const Result = ({route,navigation})=>{
     }
  }
 
- for(let i=0; i<datam.length; i++){
-    if( !(datam[i].brandAndType === marka)){
-        delete datam[i]
-    }
- }
-
+ 
     const uniqueDatam = datam.filter((item, index) => {
         return datam.indexOf(item) === index;
     }); 

@@ -202,7 +202,7 @@ console.log("mat FLTER PAGE",mat);
          </View>
          <View>
    <TouchableOpacity style={styles.Buttoncontainer} onPress={goResults}>
-            <Text style={styles.title}>Filtrele </Text>
+            <Text style={styles.title}>Filtrele</Text>
         </TouchableOpacity>
         </View>
       
