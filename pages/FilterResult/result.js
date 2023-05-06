@@ -5,14 +5,20 @@ import styles from "./result.style"
 import ProductCard from  "../../components/ProductCard/productCard"
 
 const Result = ({route,navigation})=>{
-    const {datam, data, mat}= route.params;
+    const {datam, data, mat,marka}= route.params;
     const data2 = []
 
  if(mat){
     for(let i=0; i<datam.length; i++) {
-        if(datam[i].Mat === true){
+        if(datam[i].Mat === true && datam[i].brandAndType === marka){
             data2.push(datam[i])
         }
+    }
+ }
+
+ for(let i=0; i<datam.length; i++){
+    if( !(datam[i].brandAndType === marka)){
+        delete datam[i]
     }
  }
 

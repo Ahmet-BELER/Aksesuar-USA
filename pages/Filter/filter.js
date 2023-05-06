@@ -19,7 +19,7 @@ console.log("filtre data" , data);
    const thicknessFilter = []
    const onlyMatData = []
    const MathFilter = ["Matt",0]
-
+   const onlyNameData = []
 
 
    const [marka, setMarka] = useState("");
@@ -28,9 +28,9 @@ console.log("filtre data" , data);
    const [twofilterValue, setTwofilterValue] = useState(false);
    const [notfilter,setNotfilter]=useState(true)
    const [mat, setMat] = useState("")
-
   
 
+  
 
 
 
@@ -98,6 +98,13 @@ const uniqueThicknessFilter = thicknessFilter.filter((item, index) => {
 
 
 
+for (let i = 0; i < data.length; i++) {
+   if (data[i].brandAndType === marka) {
+      onlyNameData.push(data[i])
+     
+   }
+
+} 
 
 
 
@@ -146,7 +153,7 @@ const  uniqueNewData3  = newdata3.filter((item,index)=>{
 
 console.log("mat FLTER PAGE",mat);
 
-   navigation.navigate('ResultPage', { datam: (marka && sizeValue && thicknesValue)? newdata3 : (!( marka||sizeValue||thicknesValue))? data : twofilterValue ? uniqueNewData3 :  uniqueNewData2.length > 0 ? uniqueNewData2 : newdata.length > 0 ? newdata:   null , mat: mat,data:data}  )
+   navigation.navigate('ResultPage', { datam:(marka && !sizeValue && !thicknesValue)? onlyNameData  : (marka && sizeValue && thicknesValue)? newdata3 : (!( marka||sizeValue||thicknesValue))? data : twofilterValue ? uniqueNewData3 :  uniqueNewData2.length > 0 ? uniqueNewData2 : newdata.length > 0 ? newdata:   null , mat: mat,data:data,marka:marka }  )
 
 } 
 
@@ -195,7 +202,7 @@ console.log("mat FLTER PAGE",mat);
          </View>
          <View>
    <TouchableOpacity style={styles.Buttoncontainer} onPress={goResults}>
-            <Text style={styles.title}>Filtrele</Text>
+            <Text style={styles.title}>Filtrele </Text>
         </TouchableOpacity>
         </View>
       

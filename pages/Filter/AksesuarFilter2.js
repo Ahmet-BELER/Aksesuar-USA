@@ -12,24 +12,41 @@ const AksesuarFilter2 = ({ route, navigation })=>{
     const [aksesuarName , setAksesuarName] = useState("");
     const [aksesuarId, setAksesuarId] = useState("");
     const [newdata, setNewData] = useState([]);
-
-    useEffect(()=>{
-        fetchAksesuarType();
-    }, [])
+    const [token, setToken] = useState(null);
 
     useEffect(()=>{
         setNewData(data.filter(item => item.aksesuarName === aksesuarId));
     }, [aksesuarId, data])
 
-    const fetchAksesuarType = async () =>{
-        try {
-            const response = await axios.get("http://127.0.0.1:8000/api/aksesuar/");
+    useEffect(() => {
+        // api-token-auth için POST isteği yaparak tokeni al
+        axios.post('http://127.0.0.1:8000/api-token-auth/', {
+          username: 'admin',
+          password: 'admin'
+        })
+        .then(response => {
+          setToken(response.data.token);
+        })
+        .catch(error => console.log(error));
+      }, []);
+    
+      useEffect(() => {
+        // token varsa ürünleri getir
+        if (token) {
+          axios.get('http://127.0.0.1:8000/api/aksesuar/', {
+            headers: { 'Authorization': `Token ${token}` }
+          })
+          .then(response => {
             setAksesuarData(response.data);
-        } catch (error) {
-            console.log(error);
+            console.log("aksesuarData     " , aksesuarData);
+              
+          })
+          .catch(error => console.log(error));
         }
         setLoading(false);
-    }
+      }, [token]);
+
+
 
     const goResults = () => {
         if(aksesuarId){

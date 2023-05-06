@@ -86,7 +86,7 @@ const Products = ({ navigation }) => {
     }
 
     const goFilterPage = () => {
-       
+       console.log( "data go",data);
         navigation.navigate('AksesuarFilter', { data: data  })
     }
 

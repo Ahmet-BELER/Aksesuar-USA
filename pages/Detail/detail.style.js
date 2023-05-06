@@ -49,6 +49,12 @@ export default StyleSheet.create({
     },
     kalınlık:{
         marginLeft:5,
+    },
+    Price:{
+        fontWeight:"bold",
+    },
+    value:{
+        color:"green",
     }
   
 
