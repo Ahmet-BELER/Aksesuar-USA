@@ -17,6 +17,16 @@ const Result = ({route,navigation})=>{
     }
  }
 
+if(!mat && size && kalınlık){
+
+    for(let i=0; i<datam.length; i++) {
+        if( datam[i].size === size && datam[i].kalınlık === marka){
+            data2.push(datam[i])
+        }
+    }
+
+
+}
  
     const uniqueDatam = datam.filter((item, index) => {
         return datam.indexOf(item) === index;
